@@ -1,6 +1,6 @@
 # 联想万全平台操作 Skill
 
-面向**联想万全异构智算平台（Cybertron）**的中文 agent 操作指南，覆盖文件管理、在线开发、工具服务和 PyTorch 训练任务。它将已确认的界面操作整理为可按需读取的知识，帮助 agent 从当前页面直接完成目标。
+面向 **联想万全异构智算平台（Cybertron）** 的中文 agent 操作指南，覆盖文件管理、在线开发、工具服务和 PyTorch 训练任务。它将已确认的界面操作整理为可按需读取的知识，帮助 agent 从当前页面直接完成目标。
 
 ## 为什么需要这个 skill
 
@@ -9,6 +9,43 @@
 这个 skill 保存通用的操作路径和关键判断：从哪里进入、应读取哪些字段、何时需要查看另一页面，以及怎样确认操作完成。目标是**减少走弯路、重复工具调用和无关上下文加载**，让额度尽量用于完成任务。实际节省量取决于任务和界面状态，不承诺固定比例。
 
 它是操作知识，不是训练脚本或平台接口；仍需要具备相应权限的浏览器操作工具。
+
+## 平台导航图
+
+按侧栏布局展示页面归属；箭头表示页面内的入口。主页、工作空间和训练是侧栏同级项。
+
+```text
+平台侧栏
+├─ 主页〔留空〕
+├─ 工作空间
+│  ├─ 文件管理 → 目录树 / 当前目录
+│  ├─ 在线开发 → 创建环境 / 具体环境
+│  │  └─ 具体环境 → 打开开发应用 / 更多（保存、另存为）
+│  └─ 工具服务 → 创建服务 / 具体服务
+│     ├─ SFTP → 摘要 / 日志〔留空〕
+│     └─ TensorBoard → 摘要 / 日志〔留空〕
+├─ 训练
+│  ├─ 任务模板 → PyTorch → 创建任务
+│  └─ 任务管理 → 具体任务 → 摘要 / 监控 / 日志 / 终端
+├─ 推理〔留空〕
+├─ 项目〔留空〕
+├─ 镜像〔留空〕
+├─ 模型〔留空〕
+├─ 数据〔留空〕
+└─ 计费〔留空〕
+
+外部应用：Jupyter〔内部操作留空〕、TensorBoard
+```
+
+### 直达文档
+
+| 归属 | 节点文档 |
+| --- | --- |
+| 工作空间 | [文件管理](references/workspace/files.md)；[在线开发](references/workspace/online-development/index.md)、[创建环境](references/workspace/online-development/create.md) |
+| 工作空间 → 工具服务 | [列表](references/workspace/tool-services/index.md)、[创建](references/workspace/tool-services/create.md)、[SFTP](references/workspace/tool-services/sftp.md)、[TensorBoard](references/workspace/tool-services/tensorboard.md) |
+| 训练 → 任务模板 → PyTorch | [创建任务](references/training/templates/pytorch/create.md) |
+| 训练 → 任务管理 | [列表](references/training/tasks/index.md)、[摘要](references/training/tasks/summary.md)、[监控](references/training/tasks/monitor.md)、[日志](references/training/tasks/logs.md)、[终端](references/training/tasks/terminal.md) |
+| 外部应用 | [TensorBoard](references/apps/tensorboard.md) |
 
 ## 如何组织
 
