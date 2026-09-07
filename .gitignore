@@ -1,0 +1,8 @@
+*.zip
+*.bak
+.env
+.env.*
+backups/
+debug/
+notes/
+__pycache__/
